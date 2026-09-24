@@ -17,7 +17,7 @@ A web-based application that allows users to **check hospital bed availability a
 
 ### 🎯 Objective
 
-To simplify hospital bed booking, reduce waiting time, and improve efficient bed management.
+To simplify hospital bed booking, reduce waiting time, improve efficient bed management.
 
 ### 🚀 Future Scope
 
