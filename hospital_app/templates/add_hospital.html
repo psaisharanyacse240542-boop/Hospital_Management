@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Add Hospital{% endblock %}
+
+{% block content %}
+<section class="add-hospital-section">
+    <div class="form-card">
+        <h2 class="form-title">Add Hospital</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Hospital Name" required>
+            <textarea name="address" placeholder="Address" required></textarea>
+            <input type="number" name="total_beds" placeholder="Total Beds" required>
+            <input type="number" name="available_beds" placeholder="Available Beds" required>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

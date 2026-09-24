@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Hospitals{% endblock %}
+
+{% block content %}
+<div id="hospitalPage">
+    <h1>Select Hospitals</h1>
+    <p>Select hospital and continue booking</p>
+    <div class="cards">
+        {% for hospital in hospitals %}
+        <div class="card">
+            <div class="card-content">
+                <h3>{{ hospital.name }}</h3>
+                <p>{{ hospital.address }}</p>
+                <p>Beds: {{ hospital.available_beds }}/{{ hospital.total_beds }}</p>
+            </div>
+            <a href="{% url 'book_bed' hospital.id %}" class="btn btn-primary">Select</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

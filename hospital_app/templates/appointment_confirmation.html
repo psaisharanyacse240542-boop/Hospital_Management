@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Appointment Confirmation{% endblock %}
+
+{% block content %}
+<div class="main">
+    <h2>Booking Confirmed!</h2>
+    <p>Department: {{ department }}</p>
+    <p>Reason: {{ reason }}</p>
+    <p>Date: {{ date }}</p>
+    <p>Time: {{ time }}</p>
+</div>
+{% endblock %}

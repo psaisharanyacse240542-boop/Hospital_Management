@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<section class="dashboard-page">
+    <div class="dashboard-header">
+        <h1>Admin Dashboard</h1>
+        <div class="header-right">
+            <a href="{% url 'add_hospital' %}" class="add-btn">
+                ➕ Add Hospital
+            </a>
+            <span class="admin-badge">
+                🛡️ Admin Mode
+            </span>
+        </div>
+    </div>
+    <div class="hospital-grid">
+        {% for hospital in hospitals %}
+        <div class="hospital-card">
+            <h2>{{ hospital.name }}</h2>
+            <p>🛏 Beds: {{ hospital.available_beds }} / {{ hospital.total_beds }}</p>
+            <a href="{% url 'edit_hospital' hospital.id %}" class="card-btn edit-btn">
+                ✏ Edit
+            </a>
+            <button class="card-btn rename-btn"
+                    onclick="renameHospital('{{ hospital.id }}','{{ hospital.name }}')">
+                🔤 Rename
+            </button>
+            <a href="{% url 'delete_hospital' hospital.id %}"
+               class="card-btn delete-btn"
+               onclick="return confirm('Delete this hospital?')">
+                🗑 Delete
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<script>
+function renameHospital(id, oldName){
+    let newName = prompt("Enter new hospital name:", oldName);
+    if(newName && newName.trim() !== ""){
+        window.location.href =
+        "/rename-hospital/" + id + "/?name=" + encodeURIComponent(newName);
+    }
+}
+</script>
+{% endblock %}

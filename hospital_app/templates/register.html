@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="card register-card">
+    <h2 class="card-title">Register</h2>
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- Status -->
+        <label for="status">Register As:</label>
+        <select id="status" name="status" required onchange="toggleFields()">
+            <option value="Patient">Patient</option>
+            <option value="Doctor">Doctor</option>
+        </select><br>
+
+        <!-- Doctor-only fields -->
+        <div id="doctorFields" style="display:none;">
+            <label for="speciality">Speciality:</label>
+            <select id="speciality" name="speciality">
+                <option value="General Health">General Health</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Neurology">Neurology</option>
+            </select>
+
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio"></textarea>
+        </div>
+
+        <!-- Common fields -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name"><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name"><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required><br>
+
+        <button type="submit" class="btn btn-primary">Register</button><br>
+    </form>
+
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</div>
+
+<script>
+function toggleFields() {
+    const status = document.getElementById("status").value;
+    const doctorFields = document.getElementById("doctorFields");
+    doctorFields.style.display = (status === "Doctor") ? "block" : "none";
+}
+</script>
+{% endblock %}

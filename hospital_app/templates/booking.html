@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Booking{% endblock %}
+
+{% block content %}
+
+<div class="card booking-card">
+
+    <h2 class="card-title">Appointment Details</h2>
+
+    <label>Select Specialist Doctor</label>
+    <select id="doctor" name="doctor">
+        <option value="DR. Smith">Dr. Smith</option>
+        <option value="Dr. Johnson">Dr. Johnson</option>
+    </select>
+
+    <label>Select Department</label>
+    <select>
+        <option>Cardiology</option>
+        <option>Neurology</option>
+    </select>
+
+    <label>Enter Problem / Symptoms</label>
+    <input type="text" placeholder="Enter symptoms">
+
+    <h2>Available Beds</h2>
+
+    <div class="beds">
+        <button type="button" class="bed-btn">Bed 101</button>
+        <button type="button" class="bed-btn">Bed 102</button>
+    </div>
+
+    <label>Select Date</label>
+    <input type="date" id="appointmentDate">
+
+    <label>Select Time</label>
+    <input type="time" id="appointmentTime">
+
+    <button type="button" class="confirm-btn">Confirm Booking</button>
+
+</div>
+
+
+<!-- Modal -->
+<div id="confirmationModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Booking Confirmed!</h3>
+        <p id="bookingDetails"></p>
+    </div>
+</div>
+
+{% endblock %}

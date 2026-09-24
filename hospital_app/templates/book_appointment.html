@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Book Appointment{% endblock %}
+{% block content %}
+<div class="card appointment-card">
+    <h2 class="card-title">Book an Appointment</h2>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label>Select Specialist Doctor</label>
+        <select>
+        <option>Dr. Smith</option>
+        <option>Dr. Johnson</option>
+        </select>
+
+        <label>Select Department</label>
+        <select name="department" required>
+            <option>Cardiology</option>
+            <option>Neurology</option>
+        </select>
+
+        <label>Select Reason</label>
+        <select name="reason" required>
+            <option>Regular Checkup</option>
+            <option>Consultation</option>
+        </select>
+
+        <!-- Calendar-style date picker -->
+        <label for="appointmentDate">Select Date:</label>
+        <input type="date" id="appointmentDate" name="date" required>
+
+        <!-- Modern time picker -->
+        <label for="appointmentTime">Select Time:</label>
+        <input type="time" id="appointmentTime" name="time" required>
+
+        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+    </form>
+</div>
+{% endblock %}

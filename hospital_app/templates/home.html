@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-text">
+        <h1>Welcome to Hospital Booking</h1>
+        <p>Book appointments, doctors, beds, and time slots easily.</p>
+        <div class="hero-buttons">
+            <a href="{% url 'book_appointment' %}" class="btn btn-primary">Get Appointment</a>
+            <a href="{% url 'hospitals' %}" class="btn btn-secondary">Browse Hospitals</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Landing</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container landing-container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <h1>Your Trusted Path<br>to Recovery</h1>
+            <p>
+                At our hospital, we believe that healthcare should be
+                more than just a service. It should be a compassionate
+                and collaborative journey towards wellness.
+            </p>
+            <div class="buttons">
+                <!-- Redirect to home page -->
+                <a href="{% url 'home' %}" class="btn btn-primary">Get Appointment</a>
+                <a href="#" class="btn btn-secondary">Watch Video</a>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <img src="{% static 'images/doctor.png' %}" alt="Doctor">
+            <div class="doctor-card">
+                <p>We have <span>50+</span> specialized doctors to help you</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

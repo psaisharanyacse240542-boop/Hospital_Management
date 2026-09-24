@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Edit Hospital{% endblock %}
+
+{% block content %}
+
+<div class="form-card">
+    <h2>Edit Hospital</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="name" value="{{ hospital.name }}">
+
+        <input type="number" name="total_beds"
+               value="{{ hospital.total_beds }}">
+
+        <input type="number" name="available_beds"
+               value="{{ hospital.available_beds }}">
+
+        <button type="submit" class="add-btn">Update</button>
+
+    </form>
+</div>
+
+{% endblock %}
